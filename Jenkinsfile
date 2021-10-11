@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Docker build') {
             steps {
-               sh 'docker build -f Dockerfile -t finace-app-boot .'
+               sh 'sudo docker build -f Dockerfile -t finace-app-boot .'
             }
         }
     }
