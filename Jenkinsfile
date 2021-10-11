@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Compile') {
             steps {
-               sh 'mvn clean compile'
+               sh 'source /etc/profile &&  mvn clean compile'
             }
         }
         stage('Build') {
@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Docker build') {
             steps {
-               sh 'sudo docker build -f Dockerfile -t finace-app-boot .'
+               sh 'docker build -f Dockerfile -t finace-app-boot .'
             }
         }
     }
