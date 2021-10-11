@@ -2,19 +2,24 @@ pipeline {
     agent any
 
     stages {
+        stage('Compile') {
+            steps {
+               sh 'mvn clean compile'
+            }
+        }
         stage('Build') {
             steps {
-                echo 'Building..'
+               sh 'mvn clean install'
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
+                sh 'mvn test'
             }
         }
-        stage('Deploy') {
+        stage('Docker build') {
             steps {
-                echo 'Deploying....'
+               sh 'docker build -f Dockerfile -t finace-app-boot .'
             }
         }
     }
