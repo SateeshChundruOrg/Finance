@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Compile') {
             steps {
-               sh 'source /etc/profile &&  mvn clean compile'
+               sh 'mvn clean compile'
             }
         }
         stage('Build') {
