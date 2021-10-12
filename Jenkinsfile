@@ -24,7 +24,7 @@ pipeline {
         }
          stage('Docker deploy') {
                     steps {
-                       sh 'docker stop finance-app-boot1 && docker start finance-app-boot1'
+                       sh 'docker kill finance-app-boot1 && docker run -p 8085:8085  -d=true  finance-app-boot'
                     }
                 }
 
