@@ -27,7 +27,8 @@ public class HelloWorldController {
     @GetMapping("google")
     public ResponseEntity redirectToGoogleSite() throws URISyntaxException {
 //        URI uri= new URI("http://google.com");
-        URI uri= new URI("http://192.168.55.109:8085/hello-world");
+      //  URI uri= new URI("http://192.168.55.109:8085/hello-world");
+        URI uri= new URI("http://localhost:4200/");
 
 
         return  ResponseEntity.status(HttpStatus.FOUND).location(uri).build();
