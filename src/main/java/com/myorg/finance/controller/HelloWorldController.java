@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-
+@CrossOrigin
 @RestController
 public class HelloWorldController {
 
@@ -17,7 +17,7 @@ public class HelloWorldController {
     public String hello(){
         return "Hello World How are you today? new realease";
     }
-    @CrossOrigin(origins = "http://localhost:8080")
+
     @GetMapping("google")
     public ResponseEntity redirectToGoogleSite() throws URISyntaxException {
         URI uri= new URI("http://google.com");
