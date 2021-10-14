@@ -14,7 +14,7 @@ public class HelloWorldController {
 
     @GetMapping("hello-world")
     public String hello(){
-        return "Hello World How are you today?";
+        return "Hello World How are you today? new realease";
     }
     @GetMapping("google")
     public ResponseEntity redirectToGoogleSite() throws URISyntaxException {
