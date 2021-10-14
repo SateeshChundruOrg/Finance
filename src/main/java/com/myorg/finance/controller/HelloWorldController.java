@@ -4,18 +4,24 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.HashMap;
+import java.util.Map;
 
 @CrossOrigin
 @RestController
 public class HelloWorldController {
 
     @GetMapping("hello-world")
-    public String hello(){
-        return "Hello World How are you today? new realease";
+    @ResponseBody
+    public Map<String,String> hello(){
+        Map map =new HashMap();
+        map.put("data","Hello world");
+        return map;
     }
 
     @GetMapping("google")
