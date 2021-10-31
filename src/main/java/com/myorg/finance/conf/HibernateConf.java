@@ -57,6 +57,7 @@ public class HibernateConf {
         final Properties hibernateProperties = new Properties();
         hibernateProperties.setProperty("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
         hibernateProperties.setProperty("hibernate.dialect", env.getProperty("hibernate.dialect"));
+        hibernateProperties.setProperty("hibernate.default_schema", env.getProperty("hibernate.schema"));
 
         return hibernateProperties;
     }
