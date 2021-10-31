@@ -1,0 +1,1 @@
+CREATE SEQUENCE finance.customers_seq START 1;
