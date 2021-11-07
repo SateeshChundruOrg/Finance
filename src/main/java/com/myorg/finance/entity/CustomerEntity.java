@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="customers")
@@ -22,6 +23,7 @@ public class CustomerEntity {
     @Column(name="address")
     private String address;
 
-    @Column(name="phone")
-    private String  phoneNumber;
+    @OneToMany(mappedBy = "customer")
+    private List<PhoneNumberEntity> phoneNumbers;
+
 }

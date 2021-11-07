@@ -1,1 +1,1 @@
-create table finance.customers(id bigint primary key, name varchar ,phone varchar , email varchar, address text,created_time timestamp ,updated_time timestamp)
+create table finance.customers(id bigint primary key, name varchar ,  address text,created_time timestamp ,updated_time timestamp)

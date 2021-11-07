@@ -20,7 +20,6 @@ public class CustomersRepositoryTest {
     public void testSaveCustomer(){
         CustomerEntity customer =new CustomerEntity();
         customer.setName("sateesh");
-        customer.setPhoneNumber("8374428448");
         customer.setAddress("Vadlamuru");
 
         customersRepository.save(customer);

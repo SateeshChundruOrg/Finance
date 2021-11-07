@@ -11,15 +11,15 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+@CrossOrigin
 @RestController
 public class CustomerController {
 
     @Autowired
     CustomersService customersService;
 
-    @PostMapping("/customer")
-    public ResponseEntity<Map<String,Long>> CreateCustomer(@RequestBody Customer customer){
+    @PostMapping("/customers")
+    public ResponseEntity<Map<String,Long>> createCustomer(@RequestBody Customer customer){
 
         Long customerId = customersService.saveOrUpdateCustomer(customer);
         Map<String,Long> result =new HashMap<>();
@@ -27,14 +27,21 @@ public class CustomerController {
         return ResponseEntity.status(HttpStatus.CREATED).body(result);
     }
 
-    @GetMapping("/customer/{customer_id}")
+    @GetMapping("/customers/{customer_id}")
     public ResponseEntity<Customer> getCustomerDetails(@PathVariable("customer_id") Long customerId){
         Customer customer =  customersService.getCustomer(customerId);
 
         return ResponseEntity.ok().body(customer);
     }
 
-    @PutMapping("/customer")
+    @GetMapping("/customers")
+    public ResponseEntity<List<Customer>> getAllCustomers(){
+       List<Customer>customers =  customersService.getAllCustomers();
+
+        return ResponseEntity.ok().body(customers);
+    }
+
+    @PutMapping("/customers")
     public ResponseEntity<Map<String,Long>> updateCustomer(@RequestBody Customer customer){
 
         Long customerId = customersService.saveOrUpdateCustomer(customer);
@@ -43,7 +50,7 @@ public class CustomerController {
         return ResponseEntity.ok().body(result);
     }
 
-    @DeleteMapping("/customer/{customer_id}")
+    @DeleteMapping("/customers/{customer_id}")
     public ResponseEntity updateCustomer(@PathVariable("customer_id") Long customerId){
         customersService.deleteCustomer(customerId);
         return ResponseEntity.ok().build();
