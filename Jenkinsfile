@@ -1,7 +1,7 @@
 pipeline {
   agent {
     node {
-      label 'node1'
+      label 'EC2_NODE'
     }
 
   }
