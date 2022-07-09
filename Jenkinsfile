@@ -24,17 +24,5 @@ pipeline {
       }
     }
 
-    stage('Docker build') {
-      steps {
-        sh 'docker build -f Dockerfile -t finance-app-boot .'
-      }
-    }
-
-    stage('Docker deploy') {
-      steps {
-        sh 'docker container rm -f finance-app-boot && docker run -p 8085:8085  -d=true --name=finance-app-boot finance-app-boot'
-      }
-    }
-
   }
 }
